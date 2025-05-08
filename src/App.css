@@ -80,49 +80,6 @@ body {
   }
 }
 
-@keyframes float {
-  0% {
-    transform: translate(0, 0) rotate(0deg) scale(1);
-    box-shadow: 0 0 50px rgba(83, 52, 131, 0.2);
-  }
-  33% {
-    transform: translate(30px, -50px) rotate(120deg) scale(1.1);
-    box-shadow: 0 0 70px rgba(83, 52, 131, 0.3);
-  }
-  66% {
-    transform: translate(-20px, 20px) rotate(240deg) scale(0.9);
-    box-shadow: 0 0 30px rgba(83, 52, 131, 0.1);
-  }
-  100% {
-    transform: translate(0, 0) rotate(360deg) scale(1);
-    box-shadow: 0 0 50px rgba(83, 52, 131, 0.2);
-  }
-}
-
-@keyframes ripple {
-  0% {
-    transform: translate(-50%, -50%) scale(0.8);
-    opacity: 0.5;
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.2);
-    opacity: 0.2;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(0.8);
-    opacity: 0.5;
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @keyframes particleFloat {
   0% {
     transform: translateY(0) translateX(0);
@@ -149,42 +106,6 @@ body {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
 
 .about-me-container {
@@ -508,18 +429,7 @@ body {
   transform: translateX(100%);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-/* Update responsive styles */
 @media (max-width: 768px) {
   .skills-categories {
     justify-content: center;
@@ -535,7 +445,6 @@ body {
   }
 }
 
-/* Dynamic Introduction Text */
 .intro-section {
   min-height: 100vh;
   display: flex;
