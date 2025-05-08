@@ -1,8 +1,8 @@
 :root {
-  --gradient-color-1: #1a1a2e;
-  --gradient-color-2: #16213e;
-  --gradient-color-3: #0f3460;
-  --gradient-color-4: #533483;
+  --gradient-color-1: #000000;  
+  --gradient-color-2: #1e3a8a; 
+  --gradient-color-3: #312e81; 
+  --gradient-color-4: #6d28d9;  
 }
 
 body {
@@ -16,12 +16,11 @@ body {
     var(--gradient-color-4)
   );
   background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
+  animation: gradientBG 8s ease infinite;
   position: relative;
   overflow-x: hidden;
 }
 
-/* Enhanced animated background */
 .animated-bg {
   position: fixed;
   top: 0;
@@ -33,41 +32,6 @@ body {
   overflow: hidden;
 }
 
-/* Floating circles with enhanced effects */
-.bg-circle {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(5px);
-  animation: float 20s infinite;
-  box-shadow: 0 0 50px rgba(83, 52, 131, 0.2);
-}
-
-.bg-circle::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-  transform: translate(-50%, -50%);
-  animation: ripple 8s infinite;
-}
-
-.bg-circle::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 50%;
-  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-  animation: rotate 10s linear infinite;
-}
-
-/* Add floating particles */
 .particles {
   position: absolute;
   top: 0;
@@ -97,13 +61,19 @@ body {
 .particle:nth-child(9) { left: 90%; top: 30%; animation-delay: -16s; }
 .particle:nth-child(10) { left: 25%; top: 70%; animation-delay: -18s; }
 
-/* Enhanced animations */
+
 @keyframes gradientBG {
   0% {
     background-position: 0% 50%;
   }
+  25% {
+    background-position: 50% 0%;
+  }
   50% {
     background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 100%;
   }
   100% {
     background-position: 0% 50%;
@@ -173,33 +143,6 @@ body {
   }
 }
 
-/* Update circle positions and sizes */
-.bg-circle:nth-child(1) {
-  width: 400px;
-  height: 400px;
-  top: 20%;
-  left: 10%;
-  animation-delay: 0s;
-  background: rgba(83, 52, 131, 0.1);
-}
-
-.bg-circle:nth-child(2) {
-  width: 300px;
-  height: 300px;
-  top: 60%;
-  right: 15%;
-  animation-delay: -5s;
-  background: rgba(15, 52, 96, 0.1);
-}
-
-.bg-circle:nth-child(3) {
-  width: 200px;
-  height: 200px;
-  bottom: 10%;
-  left: 20%;
-  animation-delay: -10s;
-  background: rgba(22, 33, 62, 0.1);
-}
 
 #root {
   max-width: 1280px;
@@ -311,7 +254,6 @@ body {
   border-radius: 3px;
 }
 
-/* About Section Styles */
 .about-content {
   display: flex;
   gap: 3rem;
@@ -329,7 +271,6 @@ body {
   margin-bottom: 2rem;
 }
 
-/* Work Section Styles */
 .work-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -361,7 +302,6 @@ body {
   line-height: 1.6;
 }
 
-/* Contact Section Styles */
 .contact-content {
   text-align: center;
   max-width: 600px;
@@ -418,7 +358,6 @@ body {
   }
 }
 
-/* Add navigation styles at the top */
 .nav-menu {
   position: fixed;
   top: 0;
@@ -462,7 +401,6 @@ body {
   background: rgba(161, 196, 253, 0.1);
 }
 
-/* Fix profile image styles */
 .profile-image {
   flex-shrink: 0;
   width: 300px;
