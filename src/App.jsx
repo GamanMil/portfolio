@@ -177,9 +177,9 @@ function App() {
             <div className="contact-content">
               <p>Feel free to reach out to me through any of these platforms:</p>
               <div className="contact-links">
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="mailto:your.email@example.com">Email</a>
+                <a href={import.meta.env.VITE_GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href={import.meta.env.VITE_LINKEDIN_URL} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href={`mailto:${import.meta.env.VITE_EMAIL}`}>Email</a>
               </div>
             </div>
           </section>
