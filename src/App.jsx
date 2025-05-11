@@ -91,9 +91,6 @@ function App() {
       </nav>
 
       <div className="animated-bg">
-        <div className="bg-circle"></div>
-        <div className="bg-circle"></div>
-        <div className="bg-circle"></div>
         <div className="particles">
           <div className="particle"></div>
           <div className="particle"></div>
