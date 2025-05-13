@@ -49,7 +49,13 @@ function App() {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const offset = 80; 
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - offset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -128,20 +134,24 @@ function App() {
                 
                 <div className="skills-slider">
                   <div className="skills-categories">
-                    <button className="category-btn active">Temp</button>
-                    <button className="category-btn">Temp</button>
-                    <button className="category-btn">Temp</button>
-                    <button className="category-btn">Temp</button>
+                    {Object.entries(skillCategories).map(([key, category]) => (
+                      <button
+                        key={key}
+                        className={`category-btn ${activeSkillCategory === key ? 'active' : ''}`}
+                        onClick={() => setActiveSkillCategory(key)}
+                      >
+                        {category.title}
+                      </button>
+                    ))}
                   </div>
-                  
                   <div className="skills-display">
-                    <h3>Temp</h3>
+                    <h3>{skillCategories[activeSkillCategory].title}</h3>
                     <div className="skills-grid">
-                      <div className="skill-item">Temp</div>
-                      <div className="skill-item">Temp</div>
-                      <div className="skill-item">Temp</div>
-                      <div className="skill-item">Temp</div>
-                      <div className="skill-item">Temp</div>
+                      {skillCategories[activeSkillCategory].skills.map((skill, index) => (
+                        <div key={index} className="skill-item">
+                          {skill}
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
