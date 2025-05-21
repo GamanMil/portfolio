@@ -8,7 +8,7 @@ function App() {
 
   const skillCategories = {
     languages: {
-      title: "Programming Languages",
+      title: "Languages",
       skills: ["Python", "JavaScript", "Java", "C#", "SQL"]
     },
     web: {
@@ -16,7 +16,7 @@ function App() {
       skills: ["React", "HTML/CSS", "Node.js", "Express", "REST APIs"]
     },
     ai: {
-      title: "AI & Machine Learning",
+      title: "AI",
       skills: ["TensorFlow", "PyTorch", "Scikit-learn", "NLP", "Computer Vision"]
     },
     tools: {
@@ -178,7 +178,6 @@ function App() {
             </div>
           </section>
 
-          {/* Contact Section */}
           <section id="contact" className="section">
             <h2>Contact Me</h2>
             <div className="contact-content">
