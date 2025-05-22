@@ -192,6 +192,75 @@ body {
   margin-bottom: 2rem;
 }
 
+.subsection {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.subsection h3 {
+  font-size: 1.5rem;
+  color: #c0a0e0; 
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.subsection p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #d0d0d0;
+  text-align: left;
+}
+
+.favourite-books-section {
+  margin-top: 2rem;
+}
+
+.favourite-books-section h4 {
+  font-size: 1.3rem;
+  color: #b090d0; 
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.book-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.book-item:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.book-cover {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.book-title {
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  margin-top: 0.5rem;
+  line-height: 1.3;
+}
+
 .work-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -339,7 +408,6 @@ body {
   object-position: center;
 }
 
-/* Skills Slider Styles */
 .skills-slider {
   margin-top: 2rem;
   background: rgba(255, 255, 255, 0.05);
@@ -570,4 +638,8 @@ body {
 
 .header, .subtitle {
   display: none;
+}
+
+html {
+  scroll-behavior: smooth;
 }

@@ -6,22 +6,55 @@ function App() {
   const [activeSection, setActiveSection] = useState('about');
   const [activeSkillCategory, setActiveSkillCategory] = useState('languages');
 
+  const favoriteBooks = [
+    {
+      title: "Heaven - Meiko Kawakami",
+      imageUrl: "https://m.media-amazon.com/images/W/MEDIAX_1215821-T2/images/I/81x87I8xiJS._SL1500_.jpg",
+      altText: "Cover of Heaven by Meiko Kawakami"
+    },
+    {
+      title: "No Longer Human - Osamu Dazai",
+      imageUrl: "https://m.media-amazon.com/images/W/MEDIAX_1215821-T2/images/I/41alKvN9GwL._SL1200_.jpg",
+      altText: "Cover of No Longer Human by Osamu Dazai"
+    },
+    {
+      title: "The Brothers Karamazov - Fyodor Dostoevsky",
+      imageUrl: "https://m.media-amazon.com/images/W/MEDIAX_1215821-T2/images/I/81IE8AwMvqL._SL1500_.jpg",
+      altText: "Cover of The Brothers Karamazov by Fyodor Dostoevsky"
+    },
+    {
+      title: "The Death of Ivan Ilyich - Leo Tolstoy",
+      imageUrl: "https://m.media-amazon.com/images/W/MEDIAX_1215821-T2/images/I/51mtpkTPiQL._SL1500_.jpg",
+      altText: "Cover of The Death of Ivan Ilyich by Leo Tolstoy"
+    },
+    {
+      title: "Crime and Punishment - Fyodor Dostoevsky",
+      imageUrl: "https://m.media-amazon.com/images/W/MEDIAX_1215821-T2/images/I/41q4TbGqMXL._SY445_SX342_.jpg",
+      altText: "Cover of Crime and Punishment by Fyodor Dostoevsky"
+    },
+    {
+      title: "Curious Incident of the Dog in the Night-Time - Mark Haddon",
+      imageUrl: "https://m.media-amazon.com/images/W/MEDIAX_1215821-T2/images/I/716yNkJ5eGL._SL1108_.jpg",
+      altText: "Cover of Curious Incident of the Dog in the Night-Time by Mark Haddon"
+    }
+  ];
+
   const skillCategories = {
     languages: {
       title: "Languages",
-      skills: ["Python", "JavaScript", "Java", "C#", "SQL"]
+      skills: ["Python", "JavaScript", "Java", "SQL"]
     },
     web: {
       title: "Web Development",
-      skills: ["React", "HTML/CSS", "Node.js", "Express", "REST APIs"]
+      skills: ["React", "HTML/CSS", "Node.js", "REST APIs"]
     },
     ai: {
       title: "AI",
-      skills: ["TensorFlow", "PyTorch", "Scikit-learn", "NLP", "Computer Vision"]
+      skills: ["TensorFlow", "PyTorch", "Scikit-learn", "Computer Vision"]
     },
     tools: {
       title: "Tools & Technologies",
-      skills: ["Git", "Docker", "AWS", "Linux", "VS Code"]
+      skills: ["Git", "Docker", "AWS", "Linux"]
     }
   };
 
@@ -157,9 +190,22 @@ function App() {
                 </div>
               </div>
             </div>
+            
+            <div className="subsection">
+              <div className="favourite-books-section">
+                <h4>Favourite Books</h4>
+                <div className="books-grid">
+                  {favoriteBooks.map((book, index) => (
+                    <div key={index} className="book-item">
+                      <img src={book.imageUrl} alt={book.altText} className="book-cover" />
+                      <p className="book-title">{book.title}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </section>
 
-          {/* My Work Section */}
           <section id="work" className="section">
             <h2>My Work</h2>
             <div className="work-grid">
