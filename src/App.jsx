@@ -194,13 +194,15 @@ function App() {
             <div className="subsection">
               <div className="favourite-books-section">
                 <h4>Favourite Books</h4>
-                <div className="books-grid">
-                  {favoriteBooks.map((book, index) => (
-                    <div key={index} className="book-item">
-                      <img src={book.imageUrl} alt={book.altText} className="book-cover" />
-                      <p className="book-title">{book.title}</p>
-                    </div>
-                  ))}
+                <div className="book-carousel-container">
+                  <div className="book-carousel">
+                    {[...favoriteBooks, ...favoriteBooks].map((book, index) => (
+                      <div key={index} className="book-item">
+                        <img src={book.imageUrl} alt={book.altText} className="book-cover" />
+                        <p className="book-title">{book.title}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -210,8 +212,8 @@ function App() {
             <h2>My Work</h2>
             <div className="work-grid">
               <div className="work-item">
-                <h3>Temp</h3>
-                <p>Temp</p>
+                <h3>Freelance Web Development</h3>
+                <p>I build and maintain several websites for small roofing companies, handling both the design and backend infrastructure. This taught me how to effectively communicate with clients to understand their needs. I also gained hands-on experience with domain management and search engine optimisation for businesses viewability.</p>
               </div>
               <div className="work-item">
                 <h3>Temp</h3>
