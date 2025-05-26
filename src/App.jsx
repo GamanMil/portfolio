@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 function App() {
   const [activeSection, setActiveSection] = useState('about');
   const [activeSkillCategory, setActiveSkillCategory] = useState('languages');
+  const [currentWorkIndex, setCurrentWorkIndex] = useState(0);
 
   const favoriteBooks = [
     {
@@ -36,6 +37,30 @@ function App() {
       title: "Curious Incident of the Dog in the Night-Time - Mark Haddon",
       imageUrl: "https://m.media-amazon.com/images/W/MEDIAX_1215821-T2/images/I/716yNkJ5eGL._SL1108_.jpg",
       altText: "Cover of Curious Incident of the Dog in the Night-Time by Mark Haddon"
+    }
+  ];
+
+  const workItems = [
+    {
+      id: 1,
+      title: "Freelance Web Development",
+      description: "I built and looked after websites for several small roofing companies. This included designing how the websites looked and worked, building the parts users see, and managing the technical background parts like servers and databases.\n\nCommunicating with clients was a key part of my job. I talked with them to understand what they needed for their business, turned their ideas into clear plans, and made sure we were on the same page throughout the project.\n\nI also handled their website addresses (domain names), including technical setup and security. On top of that, I worked on making their websites easier to find on search engines like Google (SEO). This helped them get more visitors and potential customers.",
+      imageUrl: "",
+      tags: ["Web Design", "Backend Development", "Client Communication", "SEO"]
+    },
+    {
+      id: 2,
+      title: "AI-Powered Gaming Assistant",
+      description: "Developed an AI-driven screen analysis software designed to assist disabled and less experienced gamers. By leveraging machine learning, text-to-speech (TTS), and dynamic subtitles, the application provides real-time feedback and clear explanations of on-screen elements. This project was a track winner at a hackathon, showcasing its innovative approach to accessibility in gaming.",
+      imageUrl: "",
+      tags: ["AI", "Machine Learning", "Accessibility", "TTS", "Game Development", "Hackathon Winner"]
+    },
+    {
+      id: 4,
+      title: "Web3 Blockchain Transaction App (Stellar Hackathon)",
+      description: "Developed a Web3 application during the Stellar x EasyA hackathon. The project involved using Stellar\'s SDK and Rust for backend development, simulating blockchain transactions on their testnet. A functional front-end was also created using HTML and JavaScript.",
+      imageUrl: "",
+      tags: ["Web3", "Blockchain", "Stellar SDK", "Rust", "HTML", "JavaScript", "Hackathon"]
     }
   ];
 
@@ -90,6 +115,14 @@ function App() {
         behavior: 'smooth'
       });
     }
+  };
+
+  const nextWorkItem = () => {
+    setCurrentWorkIndex((prevIndex) => (prevIndex + 1) % workItems.length);
+  };
+
+  const prevWorkItem = () => {
+    setCurrentWorkIndex((prevIndex) => (prevIndex - 1 + workItems.length) % workItems.length);
   };
 
   return (
@@ -210,19 +243,35 @@ function App() {
 
           <section id="work" className="section">
             <h2>My Work</h2>
-            <div className="work-grid">
-              <div className="work-item">
-                <h3>Freelance Web Development</h3>
-                <p>I build and maintain several websites for small roofing companies, handling both the design and backend infrastructure. This taught me how to effectively communicate with clients to understand their needs. I also gained hands-on experience with domain management and search engine optimisation for businesses viewability.</p>
-              </div>
-              <div className="work-item">
-                <h3>Temp</h3>
-                <p>Temp</p>
-              </div>
-              <div className="work-item">
-                <h3>Temp</h3>
-                <p>Temp</p>
-              </div>
+            <div className="work-carousel">
+              {workItems.length > 0 && (
+                <div className="work-item-card">
+                  {workItems[currentWorkIndex].imageUrl && (
+                    <div className="work-item-image-container">
+                      <img src={workItems[currentWorkIndex].imageUrl} alt={workItems[currentWorkIndex].title} className="work-item-image" />
+                    </div>
+                  )}
+                  <div className="work-item-content">
+                    <h3>{workItems[currentWorkIndex].title}</h3>
+                    {workItems[currentWorkIndex].description.split('\n\n').map((paragraph, paraIndex) => (
+                      <p key={paraIndex}>{paragraph}</p>
+                    ))}
+                    {workItems[currentWorkIndex].tags && workItems[currentWorkIndex].tags.length > 0 && (
+                      <div className="work-item-tags">
+                        {workItems[currentWorkIndex].tags.map((tag, index) => (
+                          <span key={index} className="work-item-tag">{tag}</span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+              {workItems.length > 1 && (
+                <div className="work-carousel-controls">
+                  <button onClick={prevWorkItem}>Previous</button>
+                  <button onClick={nextWorkItem}>Next</button>
+                </div>
+              )}
             </div>
           </section>
 
