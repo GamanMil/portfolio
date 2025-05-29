@@ -2,23 +2,23 @@
 
 This is my personal portfolio website, built with React and Vite. It's a constantly evolving project that showcases my skills, experience, and projects.
 
-## 🚧 Work in Progress
+## Dyanmic Website (not done)
 
 This website is actively being developed and improved. New features, design updates, and content changes are regularly being added. The current version includes:
 
-- Dynamic background effects with scroll-based animations
+- Dynamic background
 - Modern glass-morphism UI design
 - Responsive layout
 - Interactive elements
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - React
 - Vite
 - CSS3 with modern features
 - Git for version control
 
-## 🚀 Development
+## Development
 
 To run this project locally:
 
@@ -36,15 +36,14 @@ npm install
 npm run dev
 ```
 
-## 📝 Future Plans
+## Future Plans
 
 - Add more interactive elements
-- Implement dark/light theme
 - Add project showcase section
 - Enhance mobile responsiveness
 - Add more animations and transitions
 
-## 🤝 Contributing
+## Contributing
 
 While this is primarily a personal portfolio, suggestions and feedback are always welcome! Feel free to open an issue or submit a pull request.
 
