@@ -51,14 +51,14 @@ function App() {
     {
       id: 2,
       title: "AI-Powered Gaming Assistant",
-      description: "Developed an AI-driven screen analysis software designed to assist disabled and less experienced gamers. By leveraging machine learning, text-to-speech (TTS), and dynamic subtitles, the application provides real-time feedback and clear explanations of on-screen elements. This project was a track winner at a hackathon, showcasing its innovative approach to accessibility in gaming.",
+      description: "As a key contributor to a hackathon-winning project, I developed an innovative AI-driven screen analysis software specifically designed to enhance gaming experiences for disabled and less experienced players. This application utilized machine learning algorithms to interpret on-screen information in real-time. \n\nCore functionalities included leveraging text-to-speech (TTS) technology and dynamic subtitles to provide clear, audible, and visual explanations of game elements, events, and user interface components. The system aimed to bridge the accessibility gap in gaming by offering intuitive feedback and guidance, thereby empowering a wider range of individuals to participate and enjoy gaming. The project's success at the hackathon underscored its novel approach and potential impact on accessible game design.",
       imageUrl: "",
       tags: ["AI", "Machine Learning", "Accessibility", "TTS", "Game Development", "Hackathon Winner"]
     },
     {
       id: 4,
       title: "Web3 Blockchain Transaction App (Stellar Hackathon)",
-      description: "Developed a Web3 application during the Stellar x EasyA hackathon. The project involved using Stellar\'s SDK and Rust for backend development, simulating blockchain transactions on their testnet. A functional front-end was also created using HTML and JavaScript.",
+      description: "During the Stellar x EasyA hackathon, I contributed to the development of a Web3 application focused on blockchain transactions. My role involved utilizing Stellar's SDK and Rust for robust backend development, where I focused on simulating and processing blockchain transactions within Stellar's testnet environment. This required a deep dive into the intricacies of the Stellar network and its transaction protocols.\n\nIn addition to backend responsibilities, I also developed a functional front-end interface using HTML and JavaScript. This interface allowed users to interact with the blockchain simulation, providing a practical demonstration of the application's capabilities. The project served as a valuable experience in Web3 technologies, blockchain fundamentals, and rapid prototyping in a hackathon setting.",
       imageUrl: "",
       tags: ["Web3", "Blockchain", "Stellar SDK", "Rust", "HTML", "JavaScript", "Hackathon"]
     }
