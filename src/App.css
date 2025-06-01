@@ -523,7 +523,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  min-height: 100vh;
   text-align: center;
   position: relative;
   z-index: 2;
@@ -706,6 +706,9 @@ html {
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, background-color 0.3s ease-out;
   text-align: left;
   cursor: default;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
 }
 
 .work-item-card:hover {
@@ -720,6 +723,7 @@ html {
   overflow: hidden;
   border-radius: 10px;
   margin-bottom: 1rem;
+  flex-shrink: 0;
 }
 
 .work-item-image {
@@ -728,10 +732,43 @@ html {
   object-fit: cover;
 }
 
+.work-item-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.work-item-description-scrollable {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  padding-right: 10px;
+}
+
+.work-item-description-scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.work-item-description-scrollable::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.1);
+  border-radius: 4px;
+}
+
+.work-item-description-scrollable::-webkit-scrollbar-thumb {
+  background: rgba(157, 78, 221, 0.5);
+  border-radius: 4px;
+}
+
+.work-item-description-scrollable::-webkit-scrollbar-thumb:hover {
+  background: rgba(157, 78, 221, 0.8);
+}
+
 .work-item-content h3 {
   font-size: 1.8rem;
   color: #ffffff;
   margin-bottom: 0.75rem;
+  flex-shrink: 0;
 }
 
 .work-item-content p {
@@ -740,11 +777,16 @@ html {
   margin-bottom: 1rem;
 }
 
+.work-item-content p:last-child {
+  margin-bottom: 0;
+}
+
 .work-item-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1rem;
+  margin-top: auto;
+  flex-shrink: 0;
 }
 
 .work-item-tag {
@@ -780,5 +822,77 @@ html {
 }
 
 .work-carousel-controls button:active {
-  transform: translateY(0px);
+  transform: scale(0.95);
+}
+
+.qualification-item {
+  background: rgba(45, 27, 105, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.qualification-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.qualification-main-info {
+  flex: 1;
+}
+
+.qualification-side-details {
+  flex: 1;
+}
+
+.qualification-item h4 {
+  color: #c0a0e0;
+  margin-top: 0;
+  margin-bottom: 4px;
+  font-size: 1.2rem;
+}
+
+.qualification-item p {
+  color: #c0c0c0;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.qualification-item p.university-name {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #b0b0b0;
+}
+
+.qualification-item p.graduation-date,
+.qualification-item p.honours-status,
+.qualification-item p.qualification-description {
+  margin-bottom: 8px;
+}
+
+.qualification-item p.qualification-description {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .qualification-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .qualification-side-details {
+    border-left: none;
+    padding-left: 0;
+    margin-top: 15px;
+  }
 }

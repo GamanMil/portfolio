@@ -253,9 +253,11 @@ function App() {
                   )}
                   <div className="work-item-content">
                     <h3>{workItems[currentWorkIndex].title}</h3>
-                    {workItems[currentWorkIndex].description.split('\n\n').map((paragraph, paraIndex) => (
-                      <p key={paraIndex}>{paragraph}</p>
-                    ))}
+                    <div className="work-item-description-scrollable">
+                      {workItems[currentWorkIndex].description.split('\n\n').map((paragraph, paraIndex) => (
+                        <p key={paraIndex}>{paragraph}</p>
+                      ))}
+                    </div>
                     {workItems[currentWorkIndex].tags && workItems[currentWorkIndex].tags.length > 0 && (
                       <div className="work-item-tags">
                         {workItems[currentWorkIndex].tags.map((tag, index) => (
@@ -272,6 +274,21 @@ function App() {
                   <button onClick={nextWorkItem}>Next</button>
                 </div>
               )}
+            </div>
+
+            <div className="subsection qualifications-section">
+              <h3>Qualifications</h3>
+              <div className="qualification-item">
+                <div className="qualification-main-info">
+                  <h4>BSc Computer Science and Artificial Intelligence</h4>
+                  <p className="university-name">University of Sussex</p>
+                </div>
+                <div className="qualification-side-details">
+                  <p className="graduation-date">Expected Graduation: Jun. 2027</p>
+                  <p className="honours-status"><em>On track for First-Class Honours</em></p>
+                  <p className="qualification-description">Dedicated Computer Science student, passionate about machine learning.</p>
+                </div>
+              </div>
             </div>
           </section>
 
