@@ -1,8 +1,6 @@
 :root {
   --gradient-color-1: #4a2b8c;  
   --gradient-color-2: #2d1b69;  
-  --gradient-color-3: #4a2b8c;  
-  --gradient-color-4: #2d1b69;  
 }
 
 body {
@@ -12,13 +10,14 @@ body {
     45deg,
     var(--gradient-color-1),
     var(--gradient-color-2),
-    var(--gradient-color-3),
-    var(--gradient-color-4)
+    var(--gradient-color-1),
+    var(--gradient-color-2)
   );
   background-size: 400% 400%;
   animation: gradientBG 8s ease infinite;
   position: relative;
   overflow-x: hidden;
+  will-change: background-position;
 }
 
 .animated-bg {
@@ -48,6 +47,7 @@ body {
   background: rgba(255, 255, 255, 0.5);
   border-radius: 50%;
   animation: particleFloat 20s infinite linear;
+  will-change: transform, opacity;
 }
 
 .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
@@ -129,12 +129,11 @@ body {
   background: rgba(26, 26, 46, 0.2);
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
 }
 
-.section:hover {
-  transform: none;
-}
+
 
 .section h2 {
   font-size: 2rem;
@@ -307,9 +306,7 @@ body {
     text-align: center;
   }
 
-  .work-grid {
-    grid-template-columns: 1fr;
-  }
+
 
   .contact-links {
     flex-direction: column;
@@ -592,10 +589,7 @@ body {
   animation: lineGlow 3s ease-in-out infinite;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+
 
 @keyframes fadeInUp {
   from {
