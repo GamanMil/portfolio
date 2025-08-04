@@ -50,16 +50,7 @@ body {
   will-change: transform, opacity;
 }
 
-.particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
-.particle:nth-child(2) { left: 20%; top: 40%; animation-delay: -2s; }
-.particle:nth-child(3) { left: 30%; top: 60%; animation-delay: -4s; }
-.particle:nth-child(4) { left: 40%; top: 80%; animation-delay: -6s; }
-.particle:nth-child(5) { left: 50%; top: 20%; animation-delay: -8s; }
-.particle:nth-child(6) { left: 60%; top: 40%; animation-delay: -10s; }
-.particle:nth-child(7) { left: 70%; top: 60%; animation-delay: -12s; }
-.particle:nth-child(8) { left: 80%; top: 80%; animation-delay: -14s; }
-.particle:nth-child(9) { left: 90%; top: 30%; animation-delay: -16s; }
-.particle:nth-child(10) { left: 25%; top: 70%; animation-delay: -18s; }
+
 
 
 @keyframes gradientBG {
@@ -300,39 +291,6 @@ body {
   transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
-  .about-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-
-
-  .contact-links {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .section {
-    padding: 1.5rem;
-  }
-
-  .book-item {
-    width: 150px;
-    margin: 0 10px;
-    transform: rotateY(20deg) translateZ(30px);
-    padding: 15px;
-  }
-
-  .book-item:hover {
-    transform: rotateY(0deg) translateZ(50px) scale(1.08);
-  }
-
-  .book-cover {
-    height: 200px;
-  }
-}
-
 .nav-menu {
   position: fixed;
   top: 20px;
@@ -501,18 +459,51 @@ body {
   }
 }
 
-@media (max-width: 768px) {
-  .skills-categories {
-    justify-content: center;
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 0 30px rgba(161, 196, 253, 0.3);
   }
-  
-  .category-btn {
-    font-size: 0.8rem;
-    padding: 0.4rem 0.8rem;
+  50% {
+    text-shadow: 0 0 50px rgba(161, 196, 253, 0.5);
   }
-  
-  .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+@keyframes lineGlow {
+  0%, 100% {
+    opacity: 0.5;
+    width: 100px;
+  }
+  50% {
+    opacity: 1;
+    width: 150px;
+  }
+}
+
+@keyframes circleRippleFade {
+  0% {
+    transform: translate3d(-50%, -50%, 0) scale(0.2);
+    opacity: 0;
+    box-shadow: 0 0 20px rgba(173, 216, 230, 0.1);
+  }
+  25% {
+    transform: translate3d(-50%, -50%, 0) scale(2);
+    opacity: 0.3;
+    box-shadow: 0 0 30px rgba(173, 216, 230, 0.2);
+  }
+  50% {
+    transform: translate3d(-50%, -50%, 0) scale(4);
+    opacity: 0.2;
+    box-shadow: 0 0 40px rgba(173, 216, 230, 0.15);
+  }
+  75% {
+    transform: translate3d(-50%, -50%, 0) scale(5.5);
+    opacity: 0.1;
+    box-shadow: 0 0 50px rgba(173, 216, 230, 0.08);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) scale(6.5);
+    opacity: 0;
+    box-shadow: 0 0 60px rgba(173, 216, 230, 0.02);
   }
 }
 
@@ -545,12 +536,15 @@ body {
   border-radius: 50%;
   z-index: -1;
   opacity: 0;
-  transform: translate(-50%, -50%) scale(0.1);
-  animation: circleRippleFade 6s infinite linear;
+  transform: translate3d(-50%, -50%, 0) scale(0.1);
+  animation: circleRippleFade 4s infinite ease-out;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .intro-text::after {
-  animation-delay: 1s;
+  animation-delay: 2s;
 }
 
 .dynamic-text {
@@ -599,69 +593,6 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes textGlow {
-  0%, 100% {
-    text-shadow: 0 0 30px rgba(161, 196, 253, 0.3);
-  }
-  50% {
-    text-shadow: 0 0 50px rgba(161, 196, 253, 0.5);
-  }
-}
-
-@keyframes lineGlow {
-  0%, 100% {
-    opacity: 0.5;
-    width: 100px;
-  }
-  50% {
-    opacity: 1;
-    width: 150px;
-  }
-}
-
-@keyframes circleRippleFade {
-  0% {
-    transform: translate(-50%, -50%) scale(0.2);
-    opacity: 0;
-    box-shadow: 
-      0 0 8px rgba(173, 216, 230, 0.05),
-      0 0 12px rgba(190, 150, 230, 0.03);
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(6);
-    opacity: 0.4;
-    box-shadow: 
-      0 0 40px 5px rgba(173, 216, 230, 0.3),
-      0 0 60px 8px rgba(190, 150, 230, 0.25),
-      0 0 80px 10px rgba(220, 200, 255, 0.15);
-  }
-  80% {
-    transform: translate(-50%, -50%) scale(7.2);
-    opacity: 0.15;
-    box-shadow: 
-      0 0 50px 3px rgba(173, 216, 230, 0.15),
-      0 0 70px 5px rgba(190, 150, 230, 0.1),
-      0 0 90px 8px rgba(220, 200, 255, 0.05);
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(8.2);
-    opacity: 0;
-    box-shadow: 
-      0 0 60px rgba(173, 216, 230, 0.02),
-      0 0 80px rgba(190, 150, 230, 0.01);
-  }
-}
-
-@media (max-width: 768px) {
-  .dynamic-text {
-    font-size: 3.5rem;
-  }
-  
-  .intro-subtitle {
-    font-size: 1.5rem;
   }
 }
 
@@ -869,16 +800,71 @@ html {
 }
 
 .qualification-item p.graduation-date,
-.qualification-item p.honours-status,
-.qualification-item p.qualification-description {
+.qualification-item p.honours-status {
   margin-bottom: 8px;
 }
 
-.qualification-item p.qualification-description {
-  margin-bottom: 0;
-}
-
 @media (max-width: 768px) {
+  /* About section */
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .section {
+    padding: 1.5rem;
+  }
+
+  /* Book carousel */
+  .book-item {
+    width: 150px;
+    margin: 0 10px;
+    transform: rotateY(20deg) translateZ(30px);
+    padding: 15px;
+  }
+
+  .book-item:hover {
+    transform: rotateY(0deg) translateZ(50px) scale(1.08);
+  }
+
+  .book-cover {
+    height: 200px;
+  }
+
+  /* Skills section */
+  .skills-categories {
+    justify-content: center;
+  }
+  
+  .category-btn {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  /* Intro section */
+  .dynamic-text {
+    font-size: 3.5rem;
+  }
+  
+  .intro-subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .intro-text::before,
+  .intro-text::after {
+    animation-duration: 3s;
+  }
+
+  /* Qualifications */
   .qualification-item {
     flex-direction: column;
     align-items: stretch;

@@ -77,6 +77,19 @@ const SKILL_CATEGORIES = {
   }
 };
 
+const PARTICLE_POSITIONS = [
+  { left: '10%', top: '20%', delay: 0 },
+  { left: '20%', top: '40%', delay: -2 },
+  { left: '30%', top: '60%', delay: -4 },
+  { left: '40%', top: '80%', delay: -6 },
+  { left: '50%', top: '20%', delay: -8 },
+  { left: '60%', top: '40%', delay: -10 },
+  { left: '70%', top: '60%', delay: -12 },
+  { left: '80%', top: '80%', delay: -14 },
+  { left: '90%', top: '30%', delay: -16 },
+  { left: '25%', top: '70%', delay: -18 }
+];
+
 const BookCarousel = memo(({ books }) => {
   const handleImageError = (e) => {
     e.target.style.display = 'none';
@@ -107,25 +120,24 @@ function App() {
   const [activeSkillCategory, setActiveSkillCategory] = useState('languages');
   const [currentWorkIndex, setCurrentWorkIndex] = useState(0);
 
-  const handleScroll = useCallback(() => {
-    const sections = ['about', 'work', 'contact'];
-    const scrollPosition = window.scrollY + 100;
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['about', 'work', 'contact'];
+      const scrollPosition = window.scrollY + 100;
 
-    for (const section of sections) {
-      const element = document.getElementById(section);
-      if (element) {
-        const { offsetTop, offsetHeight } = element;
-        if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-          setActiveSection(section);
-          break;
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
         }
       }
-    }
-  }, []);
+    };
 
-  useEffect(() => {
     let ticking = false;
-    
     const throttledScrollHandler = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
@@ -138,7 +150,7 @@ function App() {
 
     window.addEventListener('scroll', throttledScrollHandler);
     return () => window.removeEventListener('scroll', throttledScrollHandler);
-  }, [handleScroll]);
+  }, []);
 
   const nextWorkItem = useCallback(() => {
     setCurrentWorkIndex((prevIndex) => (prevIndex + 1) % WORK_ITEMS.length);
@@ -206,16 +218,17 @@ function App() {
 
       <div className="animated-bg">
         <div className="particles">
-          <div className="particle"></div>
-          <div className="particle"></div>
-          <div className="particle"></div>
-          <div className="particle"></div>
-          <div className="particle"></div>
-          <div className="particle"></div>
-          <div className="particle"></div>
-          <div className="particle"></div>
-          <div className="particle"></div>
-          <div className="particle"></div>
+          {PARTICLE_POSITIONS.map((pos, i) => (
+            <div 
+              key={i} 
+              className="particle"
+              style={{
+                left: pos.left,
+                top: pos.top,
+                animationDelay: `${pos.delay}s`
+              }}
+            />
+          ))}
         </div>
       </div>
       
