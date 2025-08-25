@@ -1,35 +1,36 @@
 import './App.css'
-import profileImage from './assets/IMG-20241012-WA0009.jpg'
+import profileImage from './assets/2581.gif'
 import { useEffect, useState, useCallback, memo } from 'react'
 
 const FAVORITE_BOOKS = [
-  {      title: "Heaven - Meiko Kawakami",
-    imageUrl: "https://m.media-amazon.com/images/W/MEDIAX_1215821-T2/images/I/81x87I8xiJS._SL1500_.jpg",
+  {
+    title: "Heaven - Meiko Kawakami",
+    imageUrl: "/src/assets/heaven.jpg",
     altText: "Cover of Heaven by Meiko Kawakami"
   },
   {
     title: "No Longer Human - Osamu Dazai",
-    imageUrl: "https://m.media-amazon.com/images/W/MEDIAX_1215821-T2/images/I/41alKvN9GwL._SL1200_.jpg",
+    imageUrl: "/src/assets/nolongerhuman.jpg",
     altText: "Cover of No Longer Human by Osamu Dazai"
   },
   {
     title: "The Brothers Karamazov - Fyodor Dostoevsky",
-    imageUrl: "https://m.media-amazon.com/images/W/MEDIAX_1215821-T2/images/I/81IE8AwMvqL._SL1500_.jpg",
+    imageUrl: "/src/assets/brotherskaramazov.jpg",
     altText: "Cover of The Brothers Karamazov by Fyodor Dostoevsky"
   },
   {
     title: "The Death of Ivan Ilyich - Leo Tolstoy",
-    imageUrl: "https://m.media-amazon.com/images/W/MEDIAX_1215821-T2/images/I/51mtpkTPiQL._SL1500_.jpg",
+    imageUrl: "/src/assets/thedeathofivan.jpg",
     altText: "Cover of The Death of Ivan Ilyich by Leo Tolstoy"
   },
   {
     title: "Crime and Punishment - Fyodor Dostoevsky",
-    imageUrl: "https://m.media-amazon.com/images/W/MEDIAX_1215821-T2/images/I/41q4TbGqMXL._SY445_SX342_.jpg",
+    imageUrl: "/src/assets/crimeandpunishment.jpg",
     altText: "Cover of Crime and Punishment by Fyodor Dostoevsky"
   },
   {
     title: "Curious Incident of the Dog in the Night-Time - Mark Haddon",
-    imageUrl: "https://m.media-amazon.com/images/W/MEDIAX_1215821-T2/images/I/716yNkJ5eGL._SL1108_.jpg",
+    imageUrl: "/src/assets/curiousincident.jpg",
     altText: "Cover of Curious Incident of the Dog in the Night-Time by Mark Haddon"
   }
 ];
@@ -61,7 +62,7 @@ const WORK_ITEMS = [
 const SKILL_CATEGORIES = {
   languages: {
     title: "Languages",
-    skills: ["Python", "JavaScript", "Java", "SQL"]
+    skills: ["Python", "JavaScript", "Java", "C#"]
   },
   web: {
     title: "Web Development",
