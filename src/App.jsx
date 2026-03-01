@@ -1,36 +1,42 @@
 import './App.css'
 import profileImage from './assets/2581.gif'
+import heavenImg from './assets/heaven.jpg'
+import noLongerHumanImg from './assets/nolongerhuman.jpg'
+import brothersKaramazovImg from './assets/brotherskaramazov.jpg'
+import deathOfIvanImg from './assets/thedeathofivan.jpg'
+import crimeAndPunishmentImg from './assets/crimeandpunishment.jpg'
+import curiousIncidentImg from './assets/curiousincident.jpg'
 import { useEffect, useState, useCallback, memo } from 'react'
 
 const FAVORITE_BOOKS = [
   {
     title: "Heaven - Meiko Kawakami",
-    imageUrl: "/src/assets/heaven.jpg",
+    imageUrl: heavenImg,
     altText: "Cover of Heaven by Meiko Kawakami"
   },
   {
     title: "No Longer Human - Osamu Dazai",
-    imageUrl: "/src/assets/nolongerhuman.jpg",
+    imageUrl: noLongerHumanImg,
     altText: "Cover of No Longer Human by Osamu Dazai"
   },
   {
     title: "The Brothers Karamazov - Fyodor Dostoevsky",
-    imageUrl: "/src/assets/brotherskaramazov.jpg",
+    imageUrl: brothersKaramazovImg,
     altText: "Cover of The Brothers Karamazov by Fyodor Dostoevsky"
   },
   {
     title: "The Death of Ivan Ilyich - Leo Tolstoy",
-    imageUrl: "/src/assets/thedeathofivan.jpg",
+    imageUrl: deathOfIvanImg,
     altText: "Cover of The Death of Ivan Ilyich by Leo Tolstoy"
   },
   {
     title: "Crime and Punishment - Fyodor Dostoevsky",
-    imageUrl: "/src/assets/crimeandpunishment.jpg",
+    imageUrl: crimeAndPunishmentImg,
     altText: "Cover of Crime and Punishment by Fyodor Dostoevsky"
   },
   {
     title: "Curious Incident of the Dog in the Night-Time - Mark Haddon",
-    imageUrl: "/src/assets/curiousincident.jpg",
+    imageUrl: curiousIncidentImg,
     altText: "Cover of Curious Incident of the Dog in the Night-Time by Mark Haddon"
   }
 ];
