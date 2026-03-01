@@ -2,7 +2,11 @@
 
 This is my personal portfolio website, built with React and Vite. It's a constantly evolving project that showcases my skills, experience, and projects.
 
+<<<<<<< HEAD
 The website is currently being hosted through github pages (so there is a few issues with images and general performance), you can access it here: http://benmillward.me/portfolio/
+=======
+The website is currently being hosted through github pages (so there is a few issues with images and general performance), you can access it here: https://gamanmil.github.io/portfolio/
+>>>>>>> 720bf06ab4cbcd246cd2c23388b98133409afdd1
 
 ## Dyanmic Website (not done)
 
