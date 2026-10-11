@@ -1,12 +1,15 @@
 import './App.css'
-import profileImage from './assets/2581.gif'
-import heavenImg from './assets/heaven.jpg'
-import noLongerHumanImg from './assets/nolongerhuman.jpg'
-import brothersKaramazovImg from './assets/brotherskaramazov.jpg'
-import deathOfIvanImg from './assets/thedeathofivan.jpg'
-import crimeAndPunishmentImg from './assets/crimeandpunishment.jpg'
-import curiousIncidentImg from './assets/curiousincident.jpg'
 import { useEffect, useState, useCallback, memo } from 'react'
+
+const imageUrl = (filename) => `${import.meta.env.BASE_URL}images/${filename}`
+
+const profileImage = imageUrl('2581.gif')
+const heavenImg = imageUrl('heaven.jpg')
+const noLongerHumanImg = imageUrl('nolongerhuman.jpg')
+const brothersKaramazovImg = imageUrl('brotherskaramazov.jpg')
+const deathOfIvanImg = imageUrl('thedeathofivan.jpg')
+const crimeAndPunishmentImg = imageUrl('crimeandpunishment.jpg')
+const curiousIncidentImg = imageUrl('curiousincident.jpg')
 
 const FAVORITE_BOOKS = [
   {
