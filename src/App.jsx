@@ -87,19 +87,6 @@ const SKILL_CATEGORIES = {
   }
 };
 
-const PARTICLE_POSITIONS = [
-  { left: '10%', top: '20%', delay: 0 },
-  { left: '20%', top: '40%', delay: -2 },
-  { left: '30%', top: '60%', delay: -4 },
-  { left: '40%', top: '80%', delay: -6 },
-  { left: '50%', top: '20%', delay: -8 },
-  { left: '60%', top: '40%', delay: -10 },
-  { left: '70%', top: '60%', delay: -12 },
-  { left: '80%', top: '80%', delay: -14 },
-  { left: '90%', top: '30%', delay: -16 },
-  { left: '25%', top: '70%', delay: -18 }
-];
-
 const BookCarousel = memo(({ books }) => {
   const handleImageError = (e) => {
     e.target.style.display = 'none';
@@ -108,7 +95,7 @@ const BookCarousel = memo(({ books }) => {
   return (
     <div className="book-carousel-container">
       <div className="book-carousel">
-        {[...books, ...books].map((book, index) => (
+        {books.map((book, index) => (
           <div key={index} className="book-item">
             <img 
               src={book.imageUrl} 
@@ -128,7 +115,6 @@ const BookCarousel = memo(({ books }) => {
 function App() {
   const [activeSection, setActiveSection] = useState('about');
   const [activeSkillCategory, setActiveSkillCategory] = useState('languages');
-  const [currentWorkIndex, setCurrentWorkIndex] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -162,14 +148,6 @@ function App() {
     return () => window.removeEventListener('scroll', throttledScrollHandler);
   }, []);
 
-  const nextWorkItem = useCallback(() => {
-    setCurrentWorkIndex((prevIndex) => (prevIndex + 1) % WORK_ITEMS.length);
-  }, []);
-
-  const prevWorkItem = useCallback(() => {
-    setCurrentWorkIndex((prevIndex) => (prevIndex - 1 + WORK_ITEMS.length) % WORK_ITEMS.length);
-  }, []);
-
   const scrollToSection = useCallback((sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -187,12 +165,21 @@ function App() {
     setActiveSkillCategory(category);
   }, []);
 
-  const currentWork = WORK_ITEMS[currentWorkIndex];
-
   return (
     <>
       <nav className="nav-menu">
         <div className="nav-container">
+          <a
+            href="#about"
+            className="nav-brand"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('about');
+            }}
+          >
+            <span className="nav-brand-mark" aria-hidden="true">B</span>
+            <span>Ben / Portfolio</span>
+          </a>
           <a 
             href="#about" 
             className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
@@ -226,26 +213,17 @@ function App() {
         </div>
       </nav>
 
-      <div className="animated-bg">
-        <div className="particles">
-          {PARTICLE_POSITIONS.map((pos, i) => (
-            <div 
-              key={i} 
-              className="particle"
-              style={{
-                left: pos.left,
-                top: pos.top,
-                animationDelay: `${pos.delay}s`
-              }}
-            />
-          ))}
-        </div>
-      </div>
-      
       <div className="intro-section">
         <div className="intro-text">
-          <h1 className="dynamic-text">Hey, I'm Ben</h1>
-          <p className="intro-subtitle">CS + AI Student</p>
+          <p className="intro-eyebrow">Computer science + AI student</p>
+          <h1 className="dynamic-text">I build practical software with AI.</h1>
+          <p className="intro-subtitle">
+            Hey, I’m Ben. I’m interested in thoughtful products, accessible technology,
+            and the systems that make them work.
+          </p>
+          <button className="intro-action" onClick={() => scrollToSection('work')}>
+            View selected work
+          </button>
         </div>
       </div>
 
@@ -299,40 +277,27 @@ function App() {
 
           <section id="work" className="section">
             <h2>My Work</h2>
-            <div className="work-carousel">
-              <div className="work-item-card">
-                {currentWork.imageUrl && (
-                  <div className="work-item-image-container">
-                    <img 
-                      src={currentWork.imageUrl} 
-                      alt={currentWork.title} 
-                      className="work-item-image" 
-                      loading="lazy"
-                    />
-                  </div>
-                )}
-                <div className="work-item-content">
-                  <h3>{currentWork.title}</h3>
-                  <div className="work-item-description-scrollable">
-                    {currentWork.description.split('\n\n').map((paragraph, paraIndex) => (
-                      <p key={paraIndex}>{paragraph}</p>
-                    ))}
-                  </div>
-                  {currentWork.tags?.length > 0 && (
-                    <div className="work-item-tags">
-                      {currentWork.tags.map((tag, index) => (
-                        <span key={index} className="work-item-tag">{tag}</span>
+            <div className="work-grid">
+              {WORK_ITEMS.map((work) => (
+                <article className="work-item-card" key={work.id}>
+                  <div className="work-item-content">
+                    <p className="work-item-number">0{work.id}</p>
+                    <h3>{work.title}</h3>
+                    <div className="work-item-description">
+                      {work.description.split('\n\n').map((paragraph, paraIndex) => (
+                        <p key={paraIndex}>{paragraph}</p>
                       ))}
                     </div>
-                  )}
-                </div>
-              </div>
-              {WORK_ITEMS.length > 1 && (
-                <div className="work-carousel-controls">
-                  <button onClick={prevWorkItem}>Previous</button>
-                  <button onClick={nextWorkItem}>Next</button>
-                </div>
-              )}
+                    {work.tags?.length > 0 && (
+                      <div className="work-item-tags">
+                        {work.tags.map((tag, index) => (
+                          <span key={index} className="work-item-tag">{tag}</span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </article>
+              ))}
             </div>
 
             <div className="subsection qualifications-section">
