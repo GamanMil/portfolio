@@ -169,49 +169,48 @@ function App() {
     <>
       <nav className="nav-menu">
         <div className="nav-container">
-          <a
-            href="#about"
-            className="nav-brand"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('about');
-            }}
-          >
-            <span className="nav-brand-mark" aria-hidden="true">B</span>
-            <span>Ben / Portfolio</span>
-          </a>
-          <a 
-            href="#about" 
-            className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('about');
-            }}
-          >
-            About
-          </a>
-          <a 
-            href="#work" 
-            className={`nav-link ${activeSection === 'work' ? 'active' : ''}`}
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('work');
-            }}
-          >
-            My Work
-          </a>
-          <a 
-            href="#contact" 
-            className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('contact');
-            }}
-          >
-            Contact
-          </a>
+          <div className="nav-links">
+            <a 
+              href="#about" 
+              className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('about');
+              }}
+            >
+              About
+            </a>
+            <a 
+              href="#work" 
+              className={`nav-link ${activeSection === 'work' ? 'active' : ''}`}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('work');
+              }}
+            >
+              My Work
+            </a>
+            <a 
+              href="#contact" 
+              className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('contact');
+              }}
+            >
+              Contact
+            </a>
+          </div>
         </div>
       </nav>
+
+      <button
+        className="back-to-top"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Back to top"
+      >
+        <span aria-hidden="true">↑</span>
+      </button>
 
       <div className="intro-section">
         <div className="intro-text">
