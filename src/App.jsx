@@ -66,6 +66,13 @@ const WORK_ITEMS = [
     tags: ["AI", "Machine Learning", "Accessibility", "TTS", "Game Development", "Hackathon Winner"]
   },
   {
+    id: 3,
+    title: "Circl Future Leaders Programme",
+    description: "In 2025, I was selected for the competitive Circl Future Leaders Programme in partnership with So Energy. The programme provided experience in a corporate environment through working with So Energy employees and developing my leadership skills.\n\nAs part of the programme, I completed coaching training and received a certificate accredited by the Association for Coaching.",
+    imageUrl: "",
+    tags: ["Leadership", "Corporate Experience", "Coaching", "Professional Development"]
+  },
+  {
     id: 4,
     title: "Web3 Blockchain Transaction App (Stellar Hackathon)",
     description: "During the Stellar x EasyA hackathon, I contributed to the development of a Web3 application focused on blockchain transactions. My role involved utilizing Stellar's SDK and Rust for robust backend development, where I focused on simulating and processing blockchain transactions within Stellar's testnet environment. This required a deep dive into the intricacies of the Stellar network and its transaction protocols.\n\nIn addition to backend responsibilities, I also developed a functional front-end interface using HTML and JavaScript. This interface allowed users to interact with the blockchain simulation, providing a practical demonstration of the application's capabilities. The project served as a valuable experience in Web3 technologies, blockchain fundamentals, and rapid prototyping in a hackathon setting.",
@@ -306,15 +313,25 @@ function App() {
             </div>
 
             <div className="subsection qualifications-section">
-              <h3>Qualifications</h3>
+              <div className="qualification-heading">
+                <div>
+                  <p className="section-kicker">01 / Education</p>
+                  <h3>Qualifications</h3>
+                </div>
+                <span className="qualification-status">Currently studying</span>
+              </div>
               <div className="qualification-item">
                 <div className="qualification-main-info">
                   <h4>BSc Computer Science and Artificial Intelligence</h4>
                   <p className="university-name">University of Sussex</p>
+                  <div className="qualification-focus">
+                    <span>Computer Science</span>
+                    <span>Artificial Intelligence</span>
+                  </div>
                 </div>
                 <div className="qualification-side-details">
-                  <p className="graduation-date">Expected Graduation: Jun. 2027</p>
-                  <p className="honours-status"><em>On track for First-Class Honours</em></p>
+                  <p className="graduation-date"><span>Expected graduation</span>Jun. 2027</p>
+                  <p className="honours-status"><strong>First-Class Honours</strong><span>On track</span></p>
                   <p className="qualification-description">Dedicated Computer Science student, passionate about machine learning.</p>
                 </div>
               </div>

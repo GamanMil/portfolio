@@ -437,18 +437,64 @@ body {
   gap: 0.45rem;
 }
 
+.qualification-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.qualification-heading h3 {
+  margin-bottom: 0;
+}
+
+.section-kicker {
+  margin: 0 0 0.55rem;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.qualification-status {
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(143, 200, 173, 0.35);
+  border-radius: 999px;
+  background: rgba(143, 200, 173, 0.08);
+  color: var(--accent-strong);
+  font-size: 0.76rem;
+  white-space: nowrap;
+}
+
 .qualification-item {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  padding: 1.5rem 0;
-  border-top: 1px solid var(--line);
+  gap: 1.5rem;
+  padding: 2rem;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(120deg, rgba(143, 200, 173, 0.08), transparent 42%),
+    var(--surface);
+  transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
+}
+
+.qualification-item:hover {
+  border-color: rgba(143, 200, 173, 0.55);
+  background:
+    linear-gradient(120deg, rgba(143, 200, 173, 0.13), transparent 48%),
+    var(--surface-raised);
+  transform: translateY(-3px);
 }
 
 .qualification-item h4 {
   margin: 0 0 0.35rem;
-  font-size: 1.1rem;
+  color: var(--ink);
+  font-size: 1.25rem;
   font-weight: 600;
+  letter-spacing: -0.03em;
 }
 
 .qualification-item p {
@@ -456,16 +502,81 @@ body {
 }
 
 .qualification-item .university-name {
+  margin-bottom: 1.25rem;
+  color: var(--accent-strong);
+  font-size: 0.9rem;
+}
+
+.qualification-focus {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.qualification-focus span {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 3px;
   color: var(--muted);
+  font-size: 0.76rem;
 }
 
 .qualification-side-details {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
   text-align: right;
 }
 
 .qualification-side-details p {
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.qualification-side-details .graduation-date {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 1rem;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.graduation-date span {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.qualification-side-details .honours-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.honours-status strong {
+  color: var(--accent-strong);
+  font-weight: 650;
+}
+
+.honours-status span {
+  padding: 0.25rem 0.45rem;
+  border-radius: 3px;
+  background: rgba(143, 200, 173, 0.12);
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.qualification-side-details .qualification-description {
+  max-width: 260px;
+  margin-top: auto;
+  margin-bottom: 0;
 }
 
 .contact-content {
@@ -579,6 +690,16 @@ body {
     gap: 2rem;
   }
 
+  .qualification-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .qualification-item {
+    gap: 1.25rem;
+    padding: 1.5rem;
+  }
+
   .profile-image {
     width: min(100%, 280px);
     height: 340px;
@@ -589,6 +710,7 @@ body {
   }
 
   .qualification-side-details {
+    align-items: start;
     text-align: left;
   }
 }
