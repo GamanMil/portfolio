@@ -11,6 +11,12 @@ const deathOfIvanImg = imageUrl('thedeathofivan.jpg')
 const crimeAndPunishmentImg = imageUrl('crimeandpunishment.jpg')
 const curiousIncidentImg = imageUrl('curiousincident.jpg')
 
+const CONTACT_LINKS = {
+  github: import.meta.env.VITE_GITHUB_URL || 'https://github.com/GamanMil',
+  linkedin: import.meta.env.VITE_LINKEDIN_URL || 'https://www.linkedin.com/in/benjaminmillward',
+  email: import.meta.env.VITE_EMAIL || 'benjaminmillward06@gmail.com'
+}
+
 const FAVORITE_BOOKS = [
   {
     title: "Heaven - Meiko Kawakami",
@@ -320,9 +326,9 @@ function App() {
             <div className="contact-content">
               <p>Feel free to reach out to me through any of these platforms:</p>
               <div className="contact-links">
-                <a href={import.meta.env.VITE_GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href={import.meta.env.VITE_LINKEDIN_URL} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href={`mailto:${import.meta.env.VITE_EMAIL}`}>Email</a>
+                <a href={CONTACT_LINKS.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href={CONTACT_LINKS.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href={`mailto:${CONTACT_LINKS.email}`}>Email</a>
               </div>
             </div>
           </section>
