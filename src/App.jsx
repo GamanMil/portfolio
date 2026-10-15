@@ -1,5 +1,5 @@
 import './App.css'
-import { useEffect, useState, useCallback, memo } from 'react'
+import { useEffect, useState } from 'react'
 
 const imageUrl = (filename) => `${import.meta.env.BASE_URL}images/${filename}`
 
@@ -100,7 +100,7 @@ const SKILL_CATEGORIES = {
   }
 };
 
-const BookCarousel = memo(({ books }) => {
+const BookCarousel = ({ books }) => {
   const handleImageError = (e) => {
     e.target.style.display = 'none';
   };
@@ -109,7 +109,8 @@ const BookCarousel = memo(({ books }) => {
     <div className="book-carousel-container">
       <div className="book-carousel">
         {books.map((book, index) => (
-          <div key={index} className="book-item">
+          <article key={index} className="book-item">
+            <span className="book-number">{String(index + 1).padStart(2, '0')}</span>
             <img 
               src={book.imageUrl} 
               alt={book.altText} 
@@ -118,12 +119,12 @@ const BookCarousel = memo(({ books }) => {
               onError={handleImageError}
             />
             <p className="book-title">{book.title}</p>
-          </div>
+          </article>
         ))}
       </div>
     </div>
   );
-});
+};
 
 function App() {
   const [activeSection, setActiveSection] = useState('about');
@@ -161,10 +162,10 @@ function App() {
     return () => window.removeEventListener('scroll', throttledScrollHandler);
   }, []);
 
-  const scrollToSection = useCallback((sectionId) => {
+  const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 80; 
+      const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY - offset;
       window.scrollTo({
@@ -172,11 +173,11 @@ function App() {
         behavior: 'smooth'
       });
     }
-  }, []);
+  };
 
-  const handleSkillCategoryChange = useCallback((category) => {
+  const handleSkillCategoryChange = (category) => {
     setActiveSkillCategory(category);
-  }, []);
+  };
 
   return (
     <>
@@ -248,12 +249,33 @@ function App() {
                 <img src={profileImage} alt="Profile" />
               </div>
               <div className="about-text">
-                <p>
-                  I'm a passionate computer science + AI student with a keen interest in software development and machine learning.
-                  I am looking for opportunities to grow and expand my skills.
+                <p className="about-lead">
+                  I’m Ben, a computer science and AI student who enjoys turning
+                  complex ideas into useful software.
                 </p>
+                <p>
+                  My interests sit between AI, software development, cyber security and data science, and product development.
+                   I like understanding how things work, then
+                  building tools that feel clear and genuinely helpful to use.
+                </p>
+
+                <div className="about-details">
+                  <div className="about-detail">
+                    <span className="about-detail-label">Currently</span>
+                    <strong>Studying BSc Computer Science & AI</strong>
+                  </div>
+                  <div className="about-detail">
+                    <span className="about-detail-label">Based in</span>
+                    <strong>The United Kingdom</strong>
+                  </div>
+                  <div className="about-detail">
+                    <span className="about-detail-label">Interested in</span>
+                    <strong>AI, software development, cyber security and data science</strong>
+                  </div>
+                </div>
                 
                 <div className="skills-slider">
+                  <p className="skills-kicker">What I work with</p>
                   <div className="skills-categories">
                     {Object.entries(SKILL_CATEGORIES).map(([key, category]) => (
                       <button
@@ -281,7 +303,13 @@ function App() {
             
             <div className="subsection">
               <div className="favourite-books-section">
-                <h4>Favourite Books</h4>
+                <div className="books-heading">
+                  <div>
+                    <p className="books-kicker">A small reading list</p>
+                    <h4>Favourite Books</h4>
+                  </div>
+                  <p className="books-note">Stories and ideas I keep coming back to.</p>
+                </div>
                 <BookCarousel books={FAVORITE_BOOKS} />
               </div>
             </div>
@@ -339,14 +367,35 @@ function App() {
           </section>
 
           <section id="contact" className="section">
-            <h2>Contact Me</h2>
-            <div className="contact-content">
-              <p>Feel free to reach out to me through any of these platforms:</p>
-              <div className="contact-links">
-                <a href={CONTACT_LINKS.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href={CONTACT_LINKS.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href={`mailto:${CONTACT_LINKS.email}`}>Email</a>
+            <div className="contact-heading">
+              <div>
+                <p className="section-kicker">03 / Get in touch</p>
+                <h2>Contact Me</h2>
               </div>
+            </div>
+            <div className="contact-panel">
+              <div className="contact-content">
+                <p className="contact-lead">
+                  Have an idea, an opportunity, or just want to talk tech?
+                </p>
+                <p>
+                  I’m always open to hearing from people working on thoughtful
+                  projects and interesting problems.
+                </p>
+                <div className="contact-links">
+                  <a href={`mailto:${CONTACT_LINKS.email}`} className="contact-link-primary">
+                    <span>Email me</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                  <a href={CONTACT_LINKS.github} target="_blank" rel="noopener noreferrer">
+                    GitHub <span aria-hidden="true">↗</span>
+                  </a>
+                  <a href={CONTACT_LINKS.linkedin} target="_blank" rel="noopener noreferrer">
+                    LinkedIn <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </div>
+              <p className="contact-aside">Open to conversations<br />and new opportunities.</p>
             </div>
           </section>
         </main>

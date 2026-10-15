@@ -123,10 +123,6 @@ body {
   background: rgba(143, 200, 173, 0.1);
 }
 
-.nav-link::after {
-  display: none;
-}
-
 .nav-link:hover {
   background: rgba(143, 200, 173, 0.06);
 }
@@ -262,6 +258,15 @@ body {
   max-width: 680px;
 }
 
+.about-lead {
+  max-width: 620px;
+  margin-top: 0;
+  color: var(--ink) !important;
+  font-size: clamp(1.35rem, 2.3vw, 1.8rem) !important;
+  letter-spacing: -0.035em;
+  line-height: 1.35 !important;
+}
+
 .about-text > p,
 .contact-content p,
 .subsection p,
@@ -271,10 +276,46 @@ body {
   line-height: 1.75;
 }
 
+.about-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2.25rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.about-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.about-detail-label,
+.skills-kicker {
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.about-detail strong {
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
 .skills-slider {
   margin-top: 2.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--line);
+}
+
+.skills-kicker {
+  margin: 0 0 1rem;
 }
 
 .skills-categories {
@@ -346,42 +387,109 @@ body {
   font-weight: 650;
 }
 
+.books-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.books-heading h4 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+  letter-spacing: -0.04em;
+}
+
+.books-kicker {
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.books-note {
+  max-width: 230px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  text-align: right;
+}
+
 .book-carousel-container {
-  overflow-x: auto;
-  scrollbar-width: thin;
+  width: 100%;
 }
 
 .book-carousel {
-  display: flex;
-  gap: 1.5rem;
-  min-width: max-content;
-  padding-bottom: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1rem;
 }
 
 .book-item {
-  width: 140px;
-  transition: transform 260ms ease;
+  position: relative;
+  min-width: 0;
+  padding: 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--surface);
+  transition: border-color 260ms ease, background 260ms ease, transform 260ms ease;
 }
 
 .book-item:hover {
+  border-color: var(--accent);
+  background: var(--surface-raised);
   transform: translateY(-6px);
+}
+
+.book-number {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  z-index: 1;
+  display: grid;
+  width: 1.7rem;
+  height: 1.7rem;
+  place-items: center;
+  border: 1px solid rgba(178, 226, 202, 0.45);
+  border-radius: 50%;
+  background: rgba(17, 19, 18, 0.88);
+  color: var(--accent-strong);
+  font-size: 0.66rem;
+  font-weight: 700;
 }
 
 .book-cover {
   display: block;
-  width: 140px;
-  height: 205px;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  height: auto;
   object-fit: cover;
-  border-radius: 2px;
+  border-radius: 3px;
   background: var(--line);
+  filter: saturate(0.86);
+  transition: filter 260ms ease;
+}
+
+.book-item:hover .book-cover {
+  filter: saturate(1);
 }
 
 .book-title {
-  margin: 0.75rem 0 0;
+  margin: 0.8rem 0 0.15rem;
   color: var(--muted);
   font-size: 0.8rem;
   line-height: 1.4;
   white-space: normal;
+}
+
+@media (max-width: 900px) {
+  .book-carousel {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .work-grid {
@@ -580,7 +688,39 @@ body {
 }
 
 .contact-content {
-  max-width: 560px;
+  max-width: 650px;
+}
+
+.contact-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.contact-heading h2 {
+  margin-bottom: 0;
+}
+
+.contact-panel {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 2rem;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(115deg, rgba(143, 200, 173, 0.1), transparent 44%),
+    var(--surface);
+  transition: border-color 220ms ease, background 220ms ease;
+}
+
+.contact-panel:hover {
+  border-color: rgba(143, 200, 173, 0.55);
+  background:
+    linear-gradient(115deg, rgba(143, 200, 173, 0.14), transparent 50%),
+    var(--surface-raised);
 }
 
 .contact-links {
@@ -590,16 +730,61 @@ body {
   margin-top: 2rem;
 }
 
+.contact-lead {
+  max-width: 560px;
+  margin-top: 0 !important;
+  color: var(--ink) !important;
+  font-size: clamp(1.35rem, 2.5vw, 2rem) !important;
+  letter-spacing: -0.04em;
+  line-height: 1.3 !important;
+}
+
 .contact-links a {
   color: var(--accent);
   font-size: 1rem;
   font-weight: 650;
-  text-decoration: underline;
+  text-decoration: none;
   text-underline-offset: 0.25rem;
+  transition: color 180ms ease, transform 180ms ease;
 }
 
 .contact-links a:hover {
   color: var(--accent-strong);
+  transform: translateY(-2px);
+}
+
+.contact-links a span {
+  display: inline-block;
+  margin-left: 0.25rem;
+  transition: transform 180ms ease;
+}
+
+.contact-links a:hover span {
+  transform: translate(2px, -2px);
+}
+
+.contact-links .contact-link-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  background: var(--accent);
+  color: #142019;
+}
+
+.contact-links .contact-link-primary:hover {
+  background: var(--accent-strong);
+  color: #142019;
+}
+
+.contact-aside {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  text-align: right;
 }
 
 @keyframes hero-enter {
@@ -688,6 +873,41 @@ body {
   .qualification-item {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .about-details {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .books-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .books-note {
+    max-width: 280px;
+    text-align: left;
+  }
+
+  .book-carousel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-heading {
+    align-items: start;
+  }
+
+  .contact-panel {
+    align-items: start;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+
+  .contact-aside {
+    text-align: left;
   }
 
   .qualification-heading {
