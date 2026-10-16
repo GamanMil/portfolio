@@ -321,26 +321,37 @@ body {
 .skills-categories {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: 0.65rem;
   margin-bottom: 1.5rem;
 }
 
 .category-btn {
-  padding: 0;
-  border: 0;
-  border-bottom: 1px solid transparent;
-  border-radius: 0;
-  background: transparent;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--surface);
   color: var(--muted);
   font: inherit;
   font-size: 0.9rem;
   cursor: pointer;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease,
+    transform 180ms ease;
 }
 
 .category-btn:hover,
 .category-btn.active {
-  border-bottom-color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(143, 200, 173, 0.08);
   color: var(--accent-strong);
+}
+
+.category-btn:hover {
+  transform: translateY(-1px);
+}
+
+.category-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .skills-display h3 {
