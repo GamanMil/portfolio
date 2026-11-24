@@ -54,14 +54,14 @@ const WORK_ITEMS = [
   {
     id: 1,
     title: "Freelance Web Development",
-    description: "I built and looked after websites for several small roofing companies. This included designing how the websites looked and worked, building the parts users see, and managing the technical background parts like servers and databases.\n\nCommunicating with clients was a key part of my job. I talked with them to understand what they needed for their business, turned their ideas into clear plans, and made sure we were on the same page throughout the project.\n\nI also handled their website addresses (domain names), including technical setup and security. On top of that, I worked on making their websites easier to find on search engines like Google (SEO). This helped them get more visitors and potential customers.",
+    description: "I built and looked after websites for several small roofing companies. This included designing how the websites looked and worked, building the parts users see and managing the technical background parts like servers and databases.\n\nCommunicating with clients was a key part of my job. I talked with them to understand what they needed for their business, turned their ideas into clear plans and made sure we were on the same page throughout the project.\n\nI also handled their website addresses (domain names), including technical setup and security. On top of that, I worked on making their websites easier to find on search engines like Google (SEO). This helped them get more visitors and potential customers.",
     imageUrl: "",
     tags: ["Web Design", "Backend Development", "Client Communication", "SEO"]
   },
   {
     id: 2,
     title: "AI-Powered Gaming Assistant",
-    description: "As a key contributor to a hackathon-winning project, I developed an innovative AI-driven screen analysis software specifically designed to enhance gaming experiences for disabled and less experienced players. This application utilized machine learning algorithms to interpret on-screen information in real-time. \n\nCore functionalities included leveraging text-to-speech (TTS) technology and dynamic subtitles to provide clear, audible, and visual explanations of game elements, events, and user interface components. The system aimed to bridge the accessibility gap in gaming by offering intuitive feedback and guidance, thereby empowering a wider range of individuals to participate and enjoy gaming. The project's success at the hackathon underscored its novel approach and potential impact on accessible game design.",
+    description: "As a key contributor to a hackathon-winning project, I developed an innovative AI-driven screen analysis software specifically designed to enhance gaming experiences for disabled and less experienced players. This application utilized machine learning algorithms to interpret on-screen information in real-time. \n\nCore functionalities included leveraging text-to-speech (TTS) technology and dynamic subtitles to provide audible and visual explanations of game elements and user interface components. The system aimed to bridge the accessibility gap in gaming by offering intuitive feedback and guidance, thereby empowering a wider range of individuals to participate and enjoy gaming. The project's success at the hackathon underscored its novel approach and potential impact on accessible game design.",
     imageUrl: "",
     tags: ["AI", "Machine Learning", "Accessibility", "TTS", "Game Development", "Hackathon Winner"]
   },
@@ -75,7 +75,7 @@ const WORK_ITEMS = [
   {
     id: 4,
     title: "Web3 Blockchain Transaction App (Stellar Hackathon)",
-    description: "During the Stellar x EasyA hackathon, I contributed to the development of a Web3 application focused on blockchain transactions. My role involved utilizing Stellar's SDK and Rust for robust backend development, where I focused on simulating and processing blockchain transactions within Stellar's testnet environment. This required a deep dive into the intricacies of the Stellar network and its transaction protocols.\n\nIn addition to backend responsibilities, I also developed a functional front-end interface using HTML and JavaScript. This interface allowed users to interact with the blockchain simulation, providing a practical demonstration of the application's capabilities. The project served as a valuable experience in Web3 technologies, blockchain fundamentals, and rapid prototyping in a hackathon setting.",
+    description: "During the Stellar x EasyA hackathon, I contributed to the development of a Web3 application focused on blockchain transactions. My role involved utilizing Stellar's SDK and Rust for robust backend development, where I focused on simulating and processing blockchain transactions within Stellar's testnet environment. This required a deep dive into the intricacies of the Stellar network and its transaction protocols.\n\nIn addition to backend responsibilities, I also developed a functional front-end interface using HTML and JavaScript. This interface allowed users to interact with the blockchain simulation, providing a practical demonstration of the application's capabilities. The project served as a valuable experience in Web3 technologies and rapid prototyping in a hackathon setting.",
     imageUrl: "",
     tags: ["Web3", "Blockchain", "Stellar SDK", "Rust", "HTML", "JavaScript", "Hackathon"]
   }
@@ -254,9 +254,9 @@ function App() {
                   complex ideas into useful software.
                 </p>
                 <p>
-                  My interests sit between AI, software development, cyber security and data science, and product development.
+                  My interests sit between AI, software development, cyber security, data science and product development.
                    I like understanding how things work, then
-                  building tools that feel clear and genuinely helpful to use.
+                  building tools to help simplify and improve these ideas.
                 </p>
 
                 <div className="about-details">
