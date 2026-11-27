@@ -239,13 +239,7 @@ body {
   overflow: hidden;
   border-radius: 2px;
   background: var(--line);
-  transition: transform 300ms ease, border-color 300ms ease;
   border: 1px solid transparent;
-}
-
-.profile-image:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent);
 }
 
 .profile-image img {
@@ -374,14 +368,6 @@ body {
   border-radius: 3px;
   color: var(--muted);
   font-size: 0.82rem;
-  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
-}
-
-.skill-item:hover,
-.work-item-tag:hover {
-  border-color: var(--accent);
-  background: rgba(143, 200, 173, 0.08);
-  color: var(--accent-strong);
 }
 
 .subsection {
@@ -447,13 +433,6 @@ body {
   border: 1px solid var(--line);
   border-radius: 5px;
   background: var(--surface);
-  transition: border-color 260ms ease, background 260ms ease, transform 260ms ease;
-}
-
-.book-item:hover {
-  border-color: var(--accent);
-  background: var(--surface-raised);
-  transform: translateY(-6px);
 }
 
 .book-number {
@@ -482,11 +461,6 @@ body {
   border-radius: 3px;
   background: var(--line);
   filter: saturate(0.86);
-  transition: filter 260ms ease;
-}
-
-.book-item:hover .book-cover {
-  filter: saturate(1);
 }
 
 .book-title {
@@ -515,12 +489,6 @@ body {
   min-height: 100%;
   padding: 2rem;
   background: var(--surface);
-  transition: background 220ms ease, transform 220ms ease;
-}
-
-.work-item-card:hover {
-  background: var(--surface-raised);
-  transform: translateY(-3px);
 }
 
 .work-item-content h3 {
@@ -530,11 +498,6 @@ body {
   font-size: 1.35rem;
   font-weight: 600;
   letter-spacing: -0.03em;
-  transition: color 180ms ease;
-}
-
-.work-item-card:hover .work-item-content h3 {
-  color: var(--accent-strong);
 }
 
 .work-item-description {
@@ -597,15 +560,6 @@ body {
   background:
     linear-gradient(120deg, rgba(143, 200, 173, 0.08), transparent 42%),
     var(--surface);
-  transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
-}
-
-.qualification-item:hover {
-  border-color: rgba(143, 200, 173, 0.55);
-  background:
-    linear-gradient(120deg, rgba(143, 200, 173, 0.13), transparent 48%),
-    var(--surface-raised);
-  transform: translateY(-3px);
 }
 
 .qualification-item h4 {
@@ -724,14 +678,6 @@ body {
   background:
     linear-gradient(115deg, rgba(143, 200, 173, 0.1), transparent 44%),
     var(--surface);
-  transition: border-color 220ms ease, background 220ms ease;
-}
-
-.contact-panel:hover {
-  border-color: rgba(143, 200, 173, 0.55);
-  background:
-    linear-gradient(115deg, rgba(143, 200, 173, 0.14), transparent 50%),
-    var(--surface-raised);
 }
 
 .contact-links {
